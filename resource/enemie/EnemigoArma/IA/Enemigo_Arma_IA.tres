@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Enemigo_Arma_IA" load_steps=5 format=3 uid="uid://opvkfe1l4ejs"]
+
+[ext_resource type="Script" uid="uid://c1urs48t7lkub" path="res://resource/enemie/EnemigoArma/IA/Enemigo_Arma_IA.gd" id="1_3xcyy"]
+[ext_resource type="Resource" uid="uid://cyfoi80x4m0vu" path="res://resource/Weapons/pistol_enemie.tres" id="2_r0h4h"]
+[ext_resource type="Texture2D" uid="uid://b2glqqwllesss" path="res://Assets/art/Drones/Drons png.png" id="2_tsehg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ll5fe"]
+atlas = ExtResource("2_tsehg")
+region = Rect2(16, 32, 24, 24)
+filter_clip = true
+
+[resource]
+script = ExtResource("1_3xcyy")
+weapon = ExtResource("2_r0h4h")
+vida = 3
+sprite = SubResource("AtlasTexture_ll5fe")
+nombre = ""
+velocidad = 0.0
+frequencia = 4.0
+vel_frequencia = 10.0
+metadata/_custom_type_script = "uid://c1urs48t7lkub"

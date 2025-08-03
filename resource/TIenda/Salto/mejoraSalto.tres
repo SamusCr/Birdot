@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MejoraSalto" load_steps=2 format=3 uid="uid://b5llcjte074uc"]
+
+[ext_resource type="Script" uid="uid://bv5j5dwdvmw8e" path="res://resource/TIenda/Salto/mejoraSalto.gd" id="1_cirij"]
+
+[resource]
+script = ExtResource("1_cirij")
+salto_extra = Array[int]([3, 6, 9, 14])
+precio = 12
+nombre = ""
+metadata/_custom_type_script = "uid://bv5j5dwdvmw8e"

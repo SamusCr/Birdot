@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Pantalla_Paralax" load_steps=6 format=3 uid="uid://2l11rg1dii84"]
+
+[ext_resource type="Script" uid="uid://bqdhbfhipyk88" path="res://scripts/pantallas_paralax.gd" id="1_47gir"]
+[ext_resource type="Texture2D" uid="uid://dotqauvpkh3yv" path="res://Assets/art/Paralax/City_Dirty/1.Sky.png" id="1_l7d24"]
+[ext_resource type="Texture2D" uid="uid://csnnxcvbadtge" path="res://Assets/art/Paralax/City_Dirty/2.Buildings.png" id="2_c44ei"]
+[ext_resource type="Texture2D" uid="uid://cboj7ybimjs8t" path="res://Assets/art/Paralax/City_Dirty/3.Wall.png" id="3_n6ftv"]
+[ext_resource type="Texture2D" uid="uid://ca3ivxdvv8end" path="res://Assets/art/Paralax/City_Dirty/4.Sidewalk.png" id="4_vn6on"]
+
+[resource]
+script = ExtResource("1_47gir")
+paralax = Array[Texture]([ExtResource("1_l7d24"), ExtResource("2_c44ei"), ExtResource("3_n6ftv"), ExtResource("4_vn6on")])
+distancia_inicio = 30000
+metadata/_custom_type_script = "uid://bqdhbfhipyk88"

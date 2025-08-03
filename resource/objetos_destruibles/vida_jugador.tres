@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Destruible" load_steps=2 format=3 uid="uid://dnnksbyooyo1k"]
+
+[ext_resource type="Script" uid="uid://bvydek8n4ut6y" path="res://scripts/destruible.gd" id="1_cwyed"]
+
+[resource]
+script = ExtResource("1_cwyed")
+vida = 100
+metadata/_custom_type_script = "uid://bvydek8n4ut6y"

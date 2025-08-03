@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemieResource" load_steps=2 format=3 uid="uid://ce6l0v5kc8ri8"]
+
+[ext_resource type="Script" uid="uid://b14stprolxa3t" path="res://scripts/enemie.gd" id="1_qqvwy"]
+
+[resource]
+script = ExtResource("1_qqvwy")
+vida = 4
+nombre = ""
+metadata/_custom_type_script = "uid://b14stprolxa3t"
