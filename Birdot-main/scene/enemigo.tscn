@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cexlrdo0a413e"]
+
+[ext_resource type="Script" uid="uid://4gxpcdcfm5fe" path="res://scene/enemigo.gd" id="1_rqs5d"]
+[ext_resource type="Resource" uid="uid://dpv0u65tri8bd" path="res://resource/enemie/EnemigoBasico/IA/EnemigoBasLine.tres" id="2_rlo6x"]
+[ext_resource type="Texture2D" uid="uid://b2glqqwllesss" path="res://Assets/art/Drones/Drons png.png" id="3_ur8gc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi6kq"]
+atlas = ExtResource("3_ur8gc")
+region = Rect2(120, 32, 32, 24)
+filter_clip = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_parpn"]
+size = Vector2(51.5, 31.5)
+
+[node name="Enemigo" type="Area2D" groups=["enemigo"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_rqs5d")
+ia_enemie = ExtResource("2_rlo6x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 0.992)
+scale = Vector2(3, 2.999)
+texture = SubResource("AtlasTexture_pi6kq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, -0.5)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_parpn")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

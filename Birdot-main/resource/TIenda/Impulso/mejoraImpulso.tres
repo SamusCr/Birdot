@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MejoraImpulso" load_steps=2 format=3 uid="uid://dl0h2vaf18k5u"]
+
+[ext_resource type="Script" uid="uid://m6l41lyvuscf" path="res://resource/TIenda/Impulso/mejoraImpulso.gd" id="1_b88ys"]
+
+[resource]
+script = ExtResource("1_b88ys")
+Impulso_extra = Array[int]([2, 4, 8])
+precio = 5
+nombre = "Impulso Salida"
+metadata/_custom_type_script = "uid://m6l41lyvuscf"

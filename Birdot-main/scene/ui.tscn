@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://ghbv4qxcy4mr"]
+
+[ext_resource type="Script" uid="uid://d05g4ltwgymje" path="res://scene/ui.gd" id="1_kee8w"]
+[ext_resource type="Texture2D" uid="uid://bvqnopbgd1e6d" path="res://Assets/art/UI/props.png" id="1_onfsl"]
+[ext_resource type="Texture2D" uid="uid://dgubkgue8f8ec" path="res://Assets/art/UI/Pixel Heart Sprite Sheet 32x32.png" id="2_s2f8l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onfsl"]
+atlas = ExtResource("1_onfsl")
+region = Rect2(1, 264, 85, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2f8l"]
+atlas = ExtResource("1_onfsl")
+region = Rect2(136, 264, 77, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kee8w"]
+atlas = ExtResource("2_s2f8l")
+region = Rect2(0, 0, 32, 32)
+
+[node name="UI" type="Control" node_paths=PackedStringArray("vida", "combustible")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kee8w")
+vida = NodePath("HBoxContainer")
+combustible = NodePath("TextureProgressBar")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 569.0
+offset_right = 96.0
+offset_bottom = 609.0
+scale = Vector2(2, 2)
+value = 100.0
+texture_over = SubResource("AtlasTexture_onfsl")
+texture_progress = SubResource("AtlasTexture_s2f8l")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -70.0
+offset_right = -21.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="Vida" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_kee8w")
+
+[node name="Vida2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_kee8w")
+
+[node name="Vida3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_kee8w")

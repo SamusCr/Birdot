@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MejroaArma" load_steps=5 format=3 uid="uid://cbhsvuvetk3gy"]
+
+[ext_resource type="Resource" uid="uid://cgja87torepyo" path="res://resource/Weapons/pistol.tres" id="1_dapu2"]
+[ext_resource type="Script" uid="uid://ddxseed6supxw" path="res://resource/TIenda/Arma/mejoraArma.gd" id="1_n8nji"]
+[ext_resource type="Resource" uid="uid://lmmdt72ykg4a" path="res://resource/Weapons/SemiAutomatica.tres" id="2_3lqtf"]
+[ext_resource type="Resource" uid="uid://cxaurwti62fmf" path="res://resource/Weapons/Metralleta.tres" id="3_3lqtf"]
+
+[resource]
+script = ExtResource("1_n8nji")
+Arma_nueva = Array[Resource]([ExtResource("1_dapu2"), ExtResource("2_3lqtf"), ExtResource("3_3lqtf")])
+precio = 15
+nombre = "Arma"
+metadata/_custom_type_script = "uid://ddxseed6supxw"
