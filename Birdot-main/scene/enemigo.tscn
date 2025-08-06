@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cexlrdo0a413e"]
+[gd_scene load_steps=13 format=3 uid="uid://cexlrdo0a413e"]
 
 [ext_resource type="Script" uid="uid://4gxpcdcfm5fe" path="res://scene/enemigo.gd" id="1_rqs5d"]
 [ext_resource type="Resource" uid="uid://dpv0u65tri8bd" path="res://resource/enemie/EnemigoBasico/IA/EnemigoBasLine.tres" id="2_rlo6x"]
 [ext_resource type="Texture2D" uid="uid://b2glqqwllesss" path="res://Assets/art/Drones/Drons png.png" id="3_ur8gc"]
+[ext_resource type="Texture2D" uid="uid://b7jtu3j3o2v0r" path="res://Assets/animation/explosion/1_6.png" id="5_52wof"]
+[ext_resource type="Texture2D" uid="uid://cfx2vyqgf8osm" path="res://Assets/animation/explosion/1_9.png" id="6_ckici"]
+[ext_resource type="Texture2D" uid="uid://ckwq2j4aagb54" path="res://Assets/animation/explosion/1_12.png" id="7_yfajf"]
+[ext_resource type="Texture2D" uid="uid://0hunem2fcicq" path="res://Assets/animation/explosion/1_15.png" id="8_ntaq7"]
+[ext_resource type="Texture2D" uid="uid://da6yv63uvoiho" path="res://Assets/animation/explosion/1_18.png" id="9_mekqf"]
+[ext_resource type="Texture2D" uid="uid://bbh4qt824qhb7" path="res://Assets/animation/explosion/1_21.png" id="10_eg3qt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pi6kq"]
 atlas = ExtResource("3_ur8gc")
@@ -12,11 +18,46 @@ filter_clip = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_parpn"]
 size = Vector2(51.5, 31.5)
 
-[node name="Enemigo" type="Area2D" groups=["enemigo"]]
+[sub_resource type="SpriteFrames" id="SpriteFrames_nv35x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_52wof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ckici")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yfajf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ntaq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mekqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_eg3qt")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Enemigo" type="Area2D" node_paths=PackedStringArray("explosion", "timer_activacion") groups=["enemigo"]]
+show_behind_parent = true
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_rqs5d")
 ia_enemie = ExtResource("2_rlo6x")
+explosion = NodePath("AnimatedSprite2D2")
+timer_activacion = NodePath("Timer2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 0.992)
@@ -35,7 +76,10 @@ wait_time = 30.0
 one_shot = true
 autostart = true
 
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_nv35x")
+
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
-[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

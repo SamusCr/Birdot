@@ -1,0 +1,125 @@
+[gd_scene load_steps=10 format=3 uid="uid://byfhbpr0e81d6"]
+
+[ext_resource type="Script" uid="uid://cdxovi8pbtuy4" path="res://pantalla_guanyar.gd" id="1_245aj"]
+[ext_resource type="Texture2D" uid="uid://dotqauvpkh3yv" path="res://Assets/art/Paralax/City_Dirty/1.Sky.png" id="1_umiq0"]
+[ext_resource type="Texture2D" uid="uid://csnnxcvbadtge" path="res://Assets/art/Paralax/City_Dirty/2.Buildings.png" id="2_245aj"]
+[ext_resource type="Texture2D" uid="uid://cboj7ybimjs8t" path="res://Assets/art/Paralax/City_Dirty/3.Wall.png" id="3_snf23"]
+[ext_resource type="Texture2D" uid="uid://ca3ivxdvv8end" path="res://Assets/art/Paralax/City_Dirty/4.Sidewalk.png" id="4_ix0sj"]
+[ext_resource type="Texture2D" uid="uid://cahiu8r7sj6su" path="res://Assets/art/Pigeon Sprite-Sheet/pigeon_eat-Sheet.png" id="5_pds7y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7m32"]
+atlas = ExtResource("5_pds7y")
+region = Rect2(97, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndlka"]
+atlas = ExtResource("5_pds7y")
+region = Rect2(0, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7een"]
+atlas = ExtResource("5_pds7y")
+region = Rect2(32, 0, 33, 32)
+
+[node name="Perdo_no_he_tingut_temps" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_245aj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_umiq0")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_245aj")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_snf23")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ix0sj")
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 400.0
+offset_right = 261.0
+offset_bottom = 440.0
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_m7m32")
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1030.0
+offset_top = 275.0
+offset_right = 1070.0
+offset_bottom = 315.0
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_m7m32")
+flip_h = true
+
+[node name="TextureRect7" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 275.0
+offset_right = 501.0
+offset_bottom = 315.0
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_ndlka")
+
+[node name="TextureRect8" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 788.0
+offset_top = 480.0
+offset_right = 828.0
+offset_bottom = 520.0
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_j7een")
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -213.0
+offset_top = 104.0
+offset_right = 213.0
+offset_bottom = 208.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "TEXTO_GANADOR"
+
+[node name="Cerrar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "SALIR"
+
+[connection signal="pressed" from="VBoxContainer/Cerrar" to="." method="_on_cerrar_pressed"]

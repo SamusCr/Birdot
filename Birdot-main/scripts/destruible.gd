@@ -11,6 +11,8 @@ func damage(daño: int, object):
 		object.get_parent().UI.quitar_vida(daño)
 	if object.vida_actual  <= 0:
 		if object.is_in_group("enemigo"):
+			Global.mejoras["DINERO"] += object.ia_enemie.Recompensa
+			Global.actualizar_diner.emit()
 			Global.enemigo_destruido.emit(object)
 		if object.is_in_group("jugador"):
 			object.game_over()

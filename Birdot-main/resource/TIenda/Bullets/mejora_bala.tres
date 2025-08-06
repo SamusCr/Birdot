@@ -6,5 +6,5 @@
 script = ExtResource("1_f0mkj")
 Bala_dano = Array[int]([1, 2, 3])
 precio = 10
-nombre = "Bala"
+nombre = "MEJORA_DANO"
 metadata/_custom_type_script = "uid://bope78ar1fcg"

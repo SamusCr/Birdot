@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_b88ys")
-Impulso_extra = Array[int]([2, 4, 8])
+Impulso_extra = Array[int]([50, 100, 200])
 precio = 5
-nombre = "Impulso Salida"
+nombre = "MEJORA_IMPULSO"
 metadata/_custom_type_script = "uid://m6l41lyvuscf"

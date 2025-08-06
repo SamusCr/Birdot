@@ -7,6 +7,7 @@ extends RigidBody2D
 
 @export var impulso_base : int
 @export var salto : int
+@export var combustible_max : float
 @export var combustible_gasto: int
 
 @export  var Bala : PackedScene 
@@ -15,7 +16,7 @@ extends RigidBody2D
 @export var Camera : Camera2D
 @export var punto_delante_final: Node2D
 @export var punto_delante_final2: Node2D
-@export var move_camera_vel : int
+@export var move_camera_vel : float
 
 
 
@@ -27,7 +28,7 @@ var vida_actual:int
 
 func _init():
 	Global.player = self
-	
+
 
 func _ready():
 	vida_actual = vida.vida
@@ -37,19 +38,26 @@ func _ready():
 func impulse_bird(ini_force:Vector2):
 	gravity_scale = 0.5
 	can_sleep = true
-	apply_central_impulse(impulso_base*ini_force)
+	apply_central_impulse( ini_force)
 	
 func impulso_salto():
-
-	apply_central_impulse(Vector2(impulso_base*salto,-impulso_base*salto)*1000)
+	apply_central_impulse(Vector2(impulso_base*salto,-impulso_base*salto)*50)
 
 func move_camera():
 	if linear_velocity.y > 1 && linear_velocity.x != 0:
-		if Camera.position.y >= -punto_delante_final2.position.y :
+		if $AnimatedSprite2D.animation!= "caer":
+			$AnimatedSprite2D.global_rotation_degrees = 60
+			$AnimatedSprite2D.play("caer")
+
+		if Camera.position.y >= posicion_final.y :
 			Camera.position.y -= move_camera_vel*0.5
-		if -Camera.position.x >= punto_delante_final2.position.x:
+		if -Camera.position.x >= -posicion_final.x:
 			Camera.position.x += move_camera_vel*0.2
+		
 	elif linear_velocity.y < -1 && linear_velocity.x!= 0:
+		if $AnimatedSprite2D.animation!= "Volar":
+			$AnimatedSprite2D.play("Volar")
+			$AnimatedSprite2D.rotation = 0
 		if Camera.position.y <= -punto_delante_final.position.y :
 			Camera.position.y += move_camera_vel
 		if -Camera.position.x <= punto_delante_final.position.x:
@@ -57,8 +65,9 @@ func move_camera():
 
 func game_over():
 	Camera.reparent(get_parent())
-	queue_free()
-	get_parent().fase_actual = get_parent().fases.GAMEOVER
+	Global.game_over.emit()
+	$AnimatedSprite2D.hide()
+
 
 func _on_cadencia_timeout():
 	can_shoot = true

@@ -2,7 +2,7 @@ extends Node2D
 #control del joc
 
 @export var potencia_disparo_bar : TextureProgressBar
-@export var flecha_direccion: Sprite2D
+
 @export var fase_actual:fases
 @export var Bird : bird
 @export var Paralax: Array[Parallax2D]
@@ -25,14 +25,15 @@ enum fases  {POTENCIA, APUNTADO, VOLAR,TIENDA,GAMEOVER}
 func _ready():
 	distancia_siguiente_pantalla =Paralax_pantallas[0].distancia_inicio
 	Global.aterrizaje.connect(_aterrizaje)
-
+	Global.game_over.connect(game_over)
+	UI.combustible.value = UI.combustible.max_value
 func _process(delta):
 	match fase_actual:
 		fases.POTENCIA:
 			elegir_potencia()
 		fases.APUNTADO:
-			flecha_direccion.rotation_degrees = flecha_direccion.rotation_degrees - velocidad_fiesta
-			if flecha_direccion.rotation_degrees >= 90|| flecha_direccion.rotation_degrees <= 30:
+			potencia_disparo_bar.rotation_degrees = potencia_disparo_bar.rotation_degrees - velocidad_fiesta
+			if potencia_disparo_bar.rotation_degrees >= 90|| potencia_disparo_bar.rotation_degrees <= 30:
 				velocidad_fiesta = -velocidad_fiesta 
 		fases.VOLAR:
 			Bird.move_camera()
@@ -46,8 +47,9 @@ func _input(event):
 				fase_actual = fases.APUNTADO
 		fases.APUNTADO:
 			if event.is_action_released("Impulso"):
-				Bird.impulse_bird( (Bird.position.direction_to(flecha_direccion.get_child(0).global_position))  *potencia_disparo*50)
+				Bird.impulse_bird( (Bird.position.direction_to(potencia_disparo_bar.get_child(0).global_position))*potencia_disparo*Bird.impulso_base)
 				$CanvasLayer.hide()
+				Global.empezar_spawnear.emit()
 				fase_actual = fases.VOLAR
 		fases.VOLAR:
 			if event.is_action_pressed("Disparar"):
@@ -78,9 +80,11 @@ func _aterrizaje():
 		var tween = create_tween()
 		tween.tween_property(Bird.Camera, "position", Bird.posicion_final ,1)
 		if es_final == true:
-			$TiendaCanvas/ColorRect.show()
+			get_tree().change_scene_to_file("res://pantalla_guanyar.tscn")
 		else:
+			
 			$TiendaCanvas/Tienda.show()
+		Global.destruir_spawner.emit()
 
 func avanzar_pantalla():
 	for n in Paralax.size():
@@ -94,6 +98,9 @@ func avanzar_pantalla():
 	else:
 		es_final = true
 
+func game_over():
+	es_final =false
+	_aterrizaje()
 
 func _on_cerrar_pressed():
 	get_tree().quit()

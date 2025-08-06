@@ -4,6 +4,7 @@ extends Area2D
 
 @export var vida_resource: Destruible
 @export var Color_Bala: Color
+@export var animacion : AnimatedSprite2D
 var velocidad: float
 var direccion: Vector2
 var daño: int

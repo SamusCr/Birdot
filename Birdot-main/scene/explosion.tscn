@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://isft8mam47fy"]
+
+[ext_resource type="Texture2D" uid="uid://b7jtu3j3o2v0r" path="res://Assets/animation/explosion/1_6.png" id="1_l04k4"]
+[ext_resource type="Texture2D" uid="uid://cfx2vyqgf8osm" path="res://Assets/animation/explosion/1_9.png" id="2_cf70p"]
+[ext_resource type="Texture2D" uid="uid://ckwq2j4aagb54" path="res://Assets/animation/explosion/1_12.png" id="3_3xjsk"]
+[ext_resource type="Texture2D" uid="uid://0hunem2fcicq" path="res://Assets/animation/explosion/1_15.png" id="4_gjpps"]
+[ext_resource type="Texture2D" uid="uid://da6yv63uvoiho" path="res://Assets/animation/explosion/1_18.png" id="5_ew515"]
+[ext_resource type="Texture2D" uid="uid://bbh4qt824qhb7" path="res://Assets/animation/explosion/1_21.png" id="6_6cxdk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t8r81"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_l04k4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cf70p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3xjsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gjpps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ew515")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6cxdk")
+}],
+"loop": true,
+"name": &"Explosion",
+"speed": 8.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_t8r81")
+animation = &"Explosion"

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlbns0503w36a"]
+
+[ext_resource type="Script" uid="uid://bfknk80q0ppr1" path="res://scene/squadrons.gd" id="1_io2in"]
+[ext_resource type="PackedScene" uid="uid://cexlrdo0a413e" path="res://scene/enemigo.tscn" id="2_l52am"]
+[ext_resource type="Resource" uid="uid://vthify2fwwm4" path="res://resource/enemie/EnemigoBasico/IA/EnemigoBasWeaveDOWN.tres" id="3_ul2y8"]
+[ext_resource type="Resource" uid="uid://d4fflyvbbkv8e" path="res://resource/objetos_destruibles/enemigo_destruible.tres" id="4_dgji0"]
+[ext_resource type="Resource" uid="uid://pvfwi3getx7w" path="res://resource/enemie/EnemigoBasico/IA/EnemigoBasWeaveUP.tres" id="6_xatk8"]
+
+[node name="Squadron" type="Node2D"]
+script = ExtResource("1_io2in")
+time_spawn = 2
+
+[node name="Enemigo" parent="." instance=ExtResource("2_l52am")]
+position = Vector2(0, 433)
+time_activation = 1.0
+ia_enemie = ExtResource("3_ul2y8")
+vida_resource = ExtResource("4_dgji0")
+
+[node name="Enemigo2" parent="." instance=ExtResource("2_l52am")]
+position = Vector2(0, 320)
+time_activation = 1.0
+vida_resource = ExtResource("4_dgji0")
+
+[node name="Enemigo3" parent="." instance=ExtResource("2_l52am")]
+position = Vector2(0, 208)
+time_activation = 1.0
+ia_enemie = ExtResource("6_xatk8")
+vida_resource = ExtResource("4_dgji0")

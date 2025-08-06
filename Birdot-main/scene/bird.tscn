@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfb2cucmt51io"]
+[gd_scene load_steps=23 format=3 uid="uid://bfb2cucmt51io"]
 
 [ext_resource type="Script" uid="uid://bbgkdqguhti7l" path="res://scene/bird.gd" id="1_crnqq"]
 [ext_resource type="PackedScene" uid="uid://d2ean0kbmrebu" path="res://scene/Balas/bullet.tscn" id="2_586km"]
@@ -6,15 +6,95 @@
 [ext_resource type="PackedScene" uid="uid://c3somb6nf57v8" path="res://scene/squadrons/squadrons.tscn" id="3_4j8m0"]
 [ext_resource type="Resource" uid="uid://dnnksbyooyo1k" path="res://resource/objetos_destruibles/vida_jugador.tres" id="3_n1efg"]
 [ext_resource type="Texture2D" uid="uid://brvhx6upp000g" path="res://Assets/art/Pigeon Sprite-Sheet/pigeon_fiy-Sheet.png" id="4_bq55c"]
+[ext_resource type="Texture2D" uid="uid://cahiu8r7sj6su" path="res://Assets/art/Pigeon Sprite-Sheet/pigeon_eat-Sheet.png" id="5_f37dj"]
 [ext_resource type="PackedScene" uid="uid://bbf8y8hi53uhp" path="res://scene/spawner.tscn" id="5_n1efg"]
 [ext_resource type="PackedScene" uid="uid://cmyvwhwxo723s" path="res://scene/squadrons/squadrons2.tscn" id="6_bq55c"]
+[ext_resource type="PackedScene" uid="uid://djaxksrftdxyd" path="res://scene/squadrons/squadrons4.tscn" id="8_soxtp"]
+[ext_resource type="PackedScene" uid="uid://dlbns0503w36a" path="res://scene/squadrons/squadrons3.tscn" id="9_6v0u0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crnqq"]
 size = Vector2(67, 63)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vk7sb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0mmm"]
+atlas = ExtResource("5_f37dj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v0u0"]
 atlas = ExtResource("4_bq55c")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f37dj"]
+atlas = ExtResource("4_bq55c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soxtp"]
+atlas = ExtResource("4_bq55c")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w18mt"]
+atlas = ExtResource("4_bq55c")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mwoh"]
+atlas = ExtResource("4_bq55c")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vktn7"]
+atlas = ExtResource("4_bq55c")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn0ig"]
+atlas = ExtResource("4_bq55c")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8ifh"]
+atlas = ExtResource("4_bq55c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h0mmm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0mmm")
+}],
+"loop": true,
+"name": &"Parado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v0u0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f37dj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soxtp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w18mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mwoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vktn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn0ig")
+}],
+"loop": true,
+"name": &"Volar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8ifh")
+}],
+"loop": true,
+"name": &"caer",
+"speed": 5.0
+}]
 
 [node name="Bird" type="RigidBody2D" node_paths=PackedStringArray("cadencia", "Camera", "punto_delante_final", "punto_delante_final2") groups=["jugador"]]
 gravity_scale = 0.0
@@ -30,16 +110,16 @@ cadencia = NodePath("Cadencia")
 Camera = NodePath("Camera2D")
 punto_delante_final = NodePath("Camera2D/Punto final")
 punto_delante_final2 = NodePath("Camera2D/Punto final2")
-move_camera_vel = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_crnqq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0.5, 0.492)
-scale = Vector2(2.03125, 1.99875)
-texture = SubResource("AtlasTexture_vk7sb")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_h0mmm")
+animation = &"caer"
+autoplay = "Parado"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-47, -273)
@@ -52,8 +132,8 @@ position = Vector2(498, -238)
 position = Vector2(28, 125)
 
 [node name="Spawner" parent="Camera2D" instance=ExtResource("5_n1efg")]
-position = Vector2(-709, -325)
-Squadrons = Array[PackedScene]([ExtResource("3_4j8m0"), ExtResource("6_bq55c")])
+position = Vector2(-707, -325)
+Squadrons = Array[PackedScene]([ExtResource("6_bq55c"), ExtResource("3_4j8m0"), ExtResource("9_6v0u0"), ExtResource("8_soxtp")])
 
 [node name="Cadencia" type="Timer" parent="."]
 one_shot = true

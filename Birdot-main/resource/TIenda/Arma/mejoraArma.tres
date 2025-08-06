@@ -9,5 +9,5 @@
 script = ExtResource("1_n8nji")
 Arma_nueva = Array[Resource]([ExtResource("1_dapu2"), ExtResource("2_3lqtf"), ExtResource("3_3lqtf")])
 precio = 15
-nombre = "Arma"
+nombre = "MEJORA_ARMA"
 metadata/_custom_type_script = "uid://ddxseed6supxw"

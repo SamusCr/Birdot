@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="IA_Basic_Enemie" load_steps=4 format=3 uid="uid://c6yr3n5xy73ru"]
+
+[ext_resource type="Script" uid="uid://bdj76l1a41k84" path="res://resource/enemie/EnemigoBasico/IA/IA_Basic_Enemie_Wave.gd" id="1_s5qlu"]
+[ext_resource type="Texture2D" uid="uid://b2glqqwllesss" path="res://Assets/art/Drones/Drons png.png" id="2_xveow"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij0k3"]
+atlas = ExtResource("2_xveow")
+region = Rect2(120, 32, 32, 24)
+filter_clip = true
+
+[resource]
+script = ExtResource("1_s5qlu")
+sprite = SubResource("AtlasTexture_ij0k3")
+nombre = ""
+"daño_base" = 1
+Recompensa = 2
+velocidad = 150.0
+velocidad_frequencia = 1.0
+frequencia = 5.0
+metadata/_custom_type_script = "uid://bdj76l1a41k84"

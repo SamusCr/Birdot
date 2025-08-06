@@ -9,5 +9,5 @@
 [resource]
 script = ExtResource("1_47gir")
 paralax = Array[Texture]([ExtResource("1_l7d24"), ExtResource("2_c44ei"), ExtResource("3_n6ftv"), ExtResource("4_vn6on")])
-distancia_inicio = 80000
+distancia_inicio = 120000
 metadata/_custom_type_script = "uid://bqdhbfhipyk88"

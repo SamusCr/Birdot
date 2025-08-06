@@ -1,22 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2ean0kbmrebu"]
+[gd_scene load_steps=9 format=3 uid="uid://d2ean0kbmrebu"]
 
 [ext_resource type="Script" uid="uid://b8iuc7cn4dn8d" path="res://scene/Balas/bullet.gd" id="1_qwydi"]
-[ext_resource type="Texture2D" uid="uid://bo555busus7xu" path="res://icon.svg" id="2_xw300"]
+[ext_resource type="Texture2D" uid="uid://bfst7g2v6llfh" path="res://Assets/animation/bullet/Green Effect Bullet Impact Explosion 32x32.png" id="2_bi20w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xw300"]
 size = Vector2(22, 8.5)
 
-[node name="Bullet" type="Area2D" groups=["Bala"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxjq5"]
+atlas = ExtResource("2_bi20w")
+region = Rect2(352, 480, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq01v"]
+atlas = ExtResource("2_bi20w")
+region = Rect2(384, 480, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbf3x"]
+atlas = ExtResource("2_bi20w")
+region = Rect2(416, 480, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfsu7"]
+atlas = ExtResource("2_bi20w")
+region = Rect2(448, 480, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qti6x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxjq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq01v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbf3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfsu7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Bullet" type="Area2D" node_paths=PackedStringArray("animacion") groups=["Bala"]]
 show_behind_parent = true
 collision_layer = 6
 collision_mask = 6
 input_pickable = false
 script = ExtResource("1_qwydi")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, 4.5)
-scale = Vector2(0.171875, 0.0703125)
-texture = ExtResource("2_xw300")
+animacion = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 top_level = true
@@ -27,6 +59,9 @@ debug_color = Color(0.126254, 0.606025, 0.631685, 0.42)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.0
 autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qti6x")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

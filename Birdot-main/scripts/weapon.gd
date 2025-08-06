@@ -9,6 +9,7 @@ extends Resource
 func disparar(Direccion:Vector2, Disparador: Vector2 ,Bala:PackedScene,daño:int)->Node2D:
 
 	var disparo = Bala.instantiate()
+	disparo.animacion.play()
 	if disparo.is_in_group("bala_enemigo"):
 		Global.player.Camera.add_child(disparo)
 		disparo.vida_actual = disparo.vida_resource  .vida

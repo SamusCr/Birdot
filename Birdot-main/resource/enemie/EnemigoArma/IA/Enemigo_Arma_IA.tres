@@ -12,11 +12,11 @@ filter_clip = true
 [resource]
 script = ExtResource("1_3xcyy")
 weapon = ExtResource("2_r0h4h")
-vida = 3
 sprite = SubResource("AtlasTexture_ll5fe")
 nombre = ""
-"daño_base" = 0
+"daño_base" = 1
+Recompensa = 5
 velocidad = 0.0
-frequencia = 4.0
-vel_frequencia = 10.0
+velocidad_frequencia = 5.0
+frequencia = 5.0
 metadata/_custom_type_script = "uid://c1urs48t7lkub"

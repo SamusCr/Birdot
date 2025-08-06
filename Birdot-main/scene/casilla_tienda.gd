@@ -1,3 +1,4 @@
+class_name Casilla_tienda
 extends VBoxContainer
 
 @export var objeto: MejoraTienda
@@ -5,22 +6,18 @@ extends VBoxContainer
 @export var num_mejora_label: Label
 @export var boton : Button
 
-func _ready():
-	precio_label.text = str(objeto.precio)
+
+
+func actualizar_boton():
+	objeto.actualziar_mejora()
+	precio_label.text = str(objeto.precio) + " G"
 	num_mejora_label.text = str(objeto.numero_mejoras)
-	boton.text = objeto.nombre
-	#icon.texture = objeto.sprite
-
-#Se que es pot fer millor per actualitzar totes les millor, no tinc temps
-
-
-func actualizar_objeto_tienda():
-	pass
-
-
+	boton.text = tr(objeto.nombre)
+	
 func _on_casilla_tienda_pressed():
-	if Global.dinero >= objeto.precio:
-		Global.dinero -= objeto.precio
+	if Global.mejoras["DINERO"] >= objeto.precio:
 		objeto.mejora(1)
-		precio_label.text = str(objeto.precio)
+		precio_label.text = str(objeto.precio)+ " G"
 		num_mejora_label.text = str(objeto.numero_mejoras)
+		Global.actualizar_diner.emit()
+		Global.mejoras["DINERO"] -= objeto.precio

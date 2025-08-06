@@ -1,23 +1,21 @@
 extends Control
 
-@export var posibles_mejoras: Array[MejoraTienda]
+@export var posibles_mejoras: Array[Casilla_tienda]
 
 func _ready():
 	Global.actualizar_personaje.connect(actualizar_personaje)
 	actualizar_personaje()
+	Global.actualizar_diner.emit()
+
+func actualizar_personaje():
+	for mejora in posibles_mejoras:
+		mejora.actualizar_boton()
 
 
 func _on_button_pressed():
 	get_tree().reload_current_scene()
 
-func actualizar_personaje():
-	for mejora in posibles_mejoras:
-		if mejora.is_class("MejroaArma"):
-			Global.arma = mejora.numero_mejoras 
-		elif mejora.is_class("MejoraImpulso"):
-			Global.velocidad_impulso = mejora.numero_mejoras 
-		elif mejora.is_class("MejoraSalto"):
-			Global.salto = mejora.numero_mejoras
-		elif mejora.is_class("MejoraBala"):
-			Global.daño = mejora.numero_mejoras 
-		mejora.actualziar_mejora()
+
+func _on_boton_guardar_pressed():
+	Global.guardar_partida()
+	get_tree().quit()

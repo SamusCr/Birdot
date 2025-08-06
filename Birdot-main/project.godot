@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GoBirdot"
-run/main_scene="uid://djdqt6spnjh51"
+run/main_scene="uid://dcnar8cy6ooyf"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -51,3 +51,11 @@ Disparar={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(249, 15),"global_position":Vector2(258, 63),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":true,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translation_remaps={
+"res://Assets/art/UI/MenuBasuraPrincipal_es.png": PackedStringArray("res://Assets/art/UI/MenuBasuraPrincipal_ca.png:ca", "res://Assets/art/UI/MenuBasuraPrincipal_en.png:en", "res://Assets/art/UI/MenuBasuraPrincipal_es.png:es", "res://Assets/art/UI/MenuBasuraPrincipal_pt.png:pt")
+}
+locale/translations=PackedStringArray("res://Assets/Traducciones/Traduccion.ca.translation", "res://Assets/Traducciones/Traduccion.en.translation", "res://Assets/Traducciones/Traduccion.es.translation", "res://Assets/Traducciones/Traduccion.pt.translation")
+locale/test="ca"

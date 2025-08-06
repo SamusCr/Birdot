@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_cirij")
-salto_extra = Array[int]([3, 6, 9, 14])
+salto_extra = Array[int]([50, 75, 100])
 precio = 12
-nombre = "Impulso Salto"
+nombre = "MEJORA_SALTO"
 metadata/_custom_type_script = "uid://bv5j5dwdvmw8e"

@@ -10,10 +10,11 @@ filter_clip = true
 
 [resource]
 script = ExtResource("1_coisg")
-vida = 2
 sprite = SubResource("AtlasTexture_8uevy")
 nombre = ""
-velocidad = 1.0
+"daño_base" = 2
+Recompensa = 4
+velocidad = 200.0
+velocidad_frequencia = 0.0
 frequencia = 0.0
-vel_frequencia = 0.0
 metadata/_custom_type_script = "uid://bdj76l1a41k84"

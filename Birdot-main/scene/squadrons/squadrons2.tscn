@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://bfknk80q0ppr1" path="res://scene/squadrons.gd" id="1_8pqkk"]
 [ext_resource type="PackedScene" uid="uid://cexlrdo0a413e" path="res://scene/enemigo.tscn" id="2_q32j6"]
 [ext_resource type="Resource" uid="uid://bdy4vb3qwsqk5" path="res://resource/objetos_destruibles/bala_enemigo.tres" id="3_cgbmw"]
-[ext_resource type="Resource" uid="uid://pvfwi3getx7w" path="res://resource/enemie/EnemigoBasico/IA/EnemigoBasWeaveUP.tres" id="4_4eq3m"]
+[ext_resource type="Resource" uid="uid://d4fflyvbbkv8e" path="res://resource/objetos_destruibles/enemigo_destruible.tres" id="5_ih650"]
 
 [node name="Squadron" type="Node2D"]
 script = ExtResource("1_8pqkk")
-time_spawn = 5
+time_spawn = 2
 
 [node name="Enemigo" parent="." instance=ExtResource("2_q32j6")]
 position = Vector2(0, 410)
@@ -22,5 +22,4 @@ vida_resource = ExtResource("3_cgbmw")
 [node name="Enemigo3" parent="." instance=ExtResource("2_q32j6")]
 position = Vector2(0, 238)
 time_activation = 3.0
-ia_enemie = ExtResource("4_4eq3m")
-vida_resource = ExtResource("3_cgbmw")
+vida_resource = ExtResource("5_ih650")
