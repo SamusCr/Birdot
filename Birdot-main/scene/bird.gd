@@ -20,7 +20,6 @@ extends RigidBody2D
 
 var daño_base :int = 1
 var can_shoot: bool = true
-var limit_superior :bool =false
 var posicion_final: Vector2
 var vida_actual:int
 

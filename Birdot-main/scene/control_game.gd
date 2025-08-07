@@ -5,12 +5,13 @@ extends Node2D
 
 @export var fase_actual:fases
 @export var Bird : bird
-@export var Paralax: Array[Parallax2D]
+
 @export var Paralax_pantallas: Array[Pantalla_Paralax]
 @export var move_camera : int
 @export var UI :Control
 
 #Canvis de antalla
+var Paralax: Array[Parallax2D]
 var distancia_siguiente_pantalla: int
 var pantalla_actual : int = 0
 var es_final : bool = false
@@ -25,6 +26,8 @@ enum fases  {POTENCIA, APUNTADO, VOLAR,TIENDA,GAMEOVER}
 
 
 func _ready():
+	for paralax_change in $Backgraund_Sky/Backgraunds.get_children():
+		Paralax.append(paralax_change)
 	distancia_siguiente_pantalla =Paralax_pantallas[0].distancia_inicio
 	Global.aterrizaje.connect(_aterrizaje)
 	Global.game_over.connect(game_over)
@@ -84,7 +87,7 @@ func _aterrizaje():
 		var tween = create_tween()
 		tween.tween_property(Bird.Camera, "position", Bird.posicion_final ,1)
 		if es_final == true:
-			get_tree().change_scene_to_file("res://scene/Menu_Principal.tscn")
+			get_tree().change_scene_to_file("res://scene/pantalla_guanyar.tscn")
 		else:
 			$TiendaCanvas/Tienda.show()
 		Global.destruir_spawner.emit()

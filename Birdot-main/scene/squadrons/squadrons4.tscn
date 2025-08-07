@@ -10,37 +10,37 @@ script = ExtResource("1_xrw0g")
 time_spawn = 2
 
 [node name="Enemigo" parent="." instance=ExtResource("2_yfog4")]
-position = Vector2(0, 500)
-time_activation = 1.0
+position = Vector2(-104, 566)
+time_activation = 6.0
 ia_enemie = ExtResource("3_xrw0g")
 vida_resource = ExtResource("5_fxc62")
 
 [node name="Enemigo2" parent="." instance=ExtResource("2_yfog4")]
-position = Vector2(0, 500)
-time_activation = 2.0
+position = Vector2(-72, 547)
+time_activation = 5.0
 ia_enemie = ExtResource("3_xrw0g")
 vida_resource = ExtResource("5_fxc62")
 
 [node name="Enemigo3" parent="." instance=ExtResource("2_yfog4")]
-position = Vector2(0, 500)
-time_activation = 3.0
+position = Vector2(-48, 529)
+time_activation = 4.0
 ia_enemie = ExtResource("3_xrw0g")
 vida_resource = ExtResource("5_fxc62")
 
 [node name="Enemigo4" parent="." instance=ExtResource("2_yfog4")]
-position = Vector2(0, 500)
-time_activation = 4.0
+position = Vector2(-24, 510)
+time_activation = 3.0
 ia_enemie = ExtResource("3_xrw0g")
 vida_resource = ExtResource("5_fxc62")
 
 [node name="Enemigo5" parent="." instance=ExtResource("2_yfog4")]
 position = Vector2(0, 500)
-time_activation = 5.0
+time_activation = 2.0
 ia_enemie = ExtResource("3_xrw0g")
 vida_resource = ExtResource("5_fxc62")
 
 [node name="Enemigo6" parent="." instance=ExtResource("2_yfog4")]
-position = Vector2(0, 500)
-time_activation = 6.0
+position = Vector2(16, 484)
+time_activation = 1.0
 ia_enemie = ExtResource("3_xrw0g")
 vida_resource = ExtResource("5_fxc62")

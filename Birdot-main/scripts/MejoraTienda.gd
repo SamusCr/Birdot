@@ -11,7 +11,8 @@ var numero_mejoras: int =0
 func _init():
 	precio *=  numero_mejoras
 
-func mejora(extra_mejora : int):
+func mejora(extra_mejora: int)-> bool:
+	return false
 	pass
 	
 func actualziar_mejora():

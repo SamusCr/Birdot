@@ -26,11 +26,10 @@ bounce = 0.5
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33cqm"]
 size = Vector2(4411.5, 331.5)
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("potencia_disparo_bar", "Bird", "Paralax", "UI")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("potencia_disparo_bar", "Bird", "UI")]
 script = ExtResource("1_dbls1")
 potencia_disparo_bar = NodePath("CanvasLayer/StandardYellowSharpHeadArrowWithBigOutline(1)")
 Bird = NodePath("Bird")
-Paralax = [NodePath("Backgraund_Sky/Sky_city"), NodePath("Backgraund_Sky/Backgraunds/Background3"), NodePath("Backgraund_Sky/Backgraunds/Background2"), NodePath("Backgraund_Sky/Backgraunds/Background1")]
 Paralax_pantallas = Array[ExtResource("2_i6gbm")]([ExtResource("4_ux4dc"), ExtResource("3_ux4dc"), ExtResource("5_ux4dc")])
 move_camera = 2
 UI = NodePath("CanvasLayer2/UI")
@@ -85,19 +84,19 @@ texture = ExtResource("4_ym5sv")
 position = Vector2(499, -1123)
 texture = ExtResource("5_sng2h")
 
-[node name="Sky_city" type="Parallax2D" parent="Backgraund_Sky"]
+[node name="Backgraunds" type="Node2D" parent="Backgraund_Sky"]
+
+[node name="Sky_city" type="Parallax2D" parent="Backgraund_Sky/Backgraunds"]
 show_behind_parent = true
 scroll_offset = Vector2(330, -141)
 repeat_size = Vector2(600, 0)
 autoscroll = Vector2(-32, 0)
 repeat_times = 6
 
-[node name="Sprite2D" type="Sprite2D" parent="Backgraund_Sky/Sky_city"]
+[node name="Sprite2D" type="Sprite2D" parent="Backgraund_Sky/Backgraunds/Sky_city"]
 position = Vector2(313, 268)
 scale = Vector2(4, 4)
 texture = ExtResource("3_ll5lq")
-
-[node name="Backgraunds" type="Node2D" parent="Backgraund_Sky"]
 
 [node name="Background3" type="Parallax2D" parent="Backgraund_Sky/Backgraunds"]
 show_behind_parent = true

@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://cyfoi80x4m0vu"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cyfoi80x4m0vu"]
 
 [ext_resource type="Script" uid="uid://er54ielssdpc" path="res://scripts/weapon.gd" id="1_3hn5j"]
+[ext_resource type="Resource" uid="uid://fsgdqahx8qcs" path="res://resource/bullets/bala_enemigo.tres" id="1_wn387"]
 
 [resource]
 script = ExtResource("1_3hn5j")
-nombre = "Pistola basica"
+nombre = "Pistola Enemigo"
 cadencia = 4.0
-"daño" = 1
 velocidad = 100.0
+bullet = ExtResource("1_wn387")
 metadata/_custom_type_script = "uid://er54ielssdpc"

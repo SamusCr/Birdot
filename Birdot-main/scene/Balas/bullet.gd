@@ -1,9 +1,7 @@
-class_name Bullet
 
 extends Area2D
 
 @export var vida_resource: Destruible
-@export var Color_Bala: Color
 @export var animacion : AnimatedSprite2D
 var velocidad: float
 var direccion: Vector2
@@ -13,7 +11,7 @@ var vida_actual : int
 
 func _physics_process(delta):
 	position +=  direccion.normalized()*delta*velocidad
-	
+
 
 #destruccio de la bala en el temps
 func _on_timer_timeout():

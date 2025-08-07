@@ -2,11 +2,13 @@ class_name MejroaArma
 extends MejoraTienda
 @export var Arma_nueva: Array[Resource]
 
-func mejora(extra_mejora: int):
-	Global.mejoras[nombre] += extra_mejora
-	numero_mejoras += extra_mejora
-	actualziar_mejora()
-	precio *= numero_mejoras +1
+func mejora(extra_mejora: int)-> bool:
+	if numero_mejoras + extra_mejora< Arma_nueva.size():
+		Global.mejoras[nombre] += extra_mejora
+		numero_mejoras += extra_mejora
+		actualziar_mejora()
+		return true
+	return false
 	
 func actualziar_mejora():
 	if numero_mejoras < Arma_nueva.size():

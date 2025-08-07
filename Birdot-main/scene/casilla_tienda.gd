@@ -16,8 +16,9 @@ func actualizar_boton():
 	
 func _on_casilla_tienda_pressed():
 	if Global.mejoras["DINERO"] >= objeto.precio:
-		Global.mejoras["DINERO"] -= objeto.precio
-		objeto.mejora(1)
-		precio_label.text = str(objeto.precio)+ " G"
-		num_mejora_label.text = str(objeto.numero_mejoras)
-		Global.actualizar_diner.emit()
+		if objeto.mejora(1):
+			Global.mejoras["DINERO"] -= objeto.precio
+			precio_label.text = str(objeto.precio)+ " G"
+			num_mejora_label.text = str(objeto.numero_mejoras)
+			Global.actualizar_diner.emit()
+			objeto.precio *= objeto.numero_mejoras+1
