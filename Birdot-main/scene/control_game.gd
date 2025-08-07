@@ -84,7 +84,7 @@ func _aterrizaje():
 		var tween = create_tween()
 		tween.tween_property(Bird.Camera, "position", Bird.posicion_final ,1)
 		if es_final == true:
-			get_tree().change_scene_to_file("res://pantalla_guanyar.tscn")
+			get_tree().change_scene_to_file("res://scene/Menu_Principal.tscn")
 		else:
 			$TiendaCanvas/Tienda.show()
 		Global.destruir_spawner.emit()

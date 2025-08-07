@@ -69,6 +69,10 @@ popup/item_2/id = 2
 popup/item_3/text = "Portugues"
 popup/item_3/id = 3
 
+[node name="Credits" type="Button" parent="Opciones"]
+layout_mode = 2
+text = "BOTON_CREDITOS"
+
 [node name="Volver" type="Button" parent="Opciones"]
 layout_mode = 2
 text = "MENU_PRINCIPAL"
@@ -99,6 +103,7 @@ layout_mode = 2
 text = "BOTON_EMPEZAR"
 
 [node name="Tutorial" type="Button" parent="Menu"]
+visible = false
 layout_mode = 2
 text = "TUTORIAL"
 
@@ -137,6 +142,60 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("4_5u8x2")
+
+[node name="Credits" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.137255, 1, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "Art:
+https://the-pixel-nook.itch.io/parallax-backgrounds-demo
+https://lucky-loops.itch.io/parallax-city-background
+https://ibingames.itch.io/vector-arrow-icon-pack
+https://kangjung.itch.io/pigeon-pixel
+https://ankousse26.itch.io/free-pixel-art-drones
+https://xyezawr.itch.io/free-pixel-effects-pack-4-explosions
+https://bdragon1727.itch.io/fire-pixel-bullet-16x16
+https://nicolemariet.itch.io/pixel-heart-animation-32x32-16x16-freebie
+https://www.instagram.com/cubicoart/ 
+
+Musica :
+https://uppbeat.io/browse/artist/color-parade
+
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="volver" type="Button" parent="Credits/RichTextLabel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = 175.5
+offset_right = 87.0
+offset_bottom = 206.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "MENU_PRINCIPAL"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -179,10 +238,12 @@ grow_vertical = 2
 text = "MENU_PRINCIPAL"
 
 [connection signal="item_selected" from="Opciones/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="Opciones/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Opciones/Volver" to="." method="_on_volver_pressed"]
 [connection signal="pressed" from="Menu/Continuar" to="." method="_on_continuar_pressed"]
 [connection signal="pressed" from="Menu/Empezar" to="." method="_on_empezar_pressed"]
 [connection signal="pressed" from="Menu/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Menu/Opciones" to="." method="_on_opciones_pressed"]
 [connection signal="pressed" from="Menu/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="Credits/RichTextLabel/volver" to="." method="_on_volver_pressed"]
 [connection signal="pressed" from="ColorRect/RichTextLabel2/volver" to="." method="_on_volver_pressed"]

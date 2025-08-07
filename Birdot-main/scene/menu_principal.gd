@@ -5,7 +5,7 @@ var scena_juego : PackedScene = preload("res://scene/game.tscn")
 func _ready():
 	if Global.cargar_partida():
 		$Menu/Continuar.show()
-
+	$Credits/RichTextLabel.text = TranslationServer.tr("TEXTO_CREDITOS") + $Credits/RichTextLabel.text
 #boto del menu principal
 func _on_continuar_pressed():
 	Global.actualizar_personaje.emit()
@@ -24,6 +24,7 @@ func _on_opciones_pressed():
 func _on_volver_pressed():
 	$Opciones.hide()
 	$ColorRect.hide()
+	$Credits.hide()
 	$Menu.show()
 
 #Botons del menu opcions
@@ -47,3 +48,8 @@ func _on_salir_pressed():
 func _on_tutorial_pressed():
 	$ColorRect.show()
 	$Menu.hide()
+
+
+func _on_credits_pressed():
+	$Credits.show()
+	$Opciones.hide()
