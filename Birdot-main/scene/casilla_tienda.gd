@@ -7,7 +7,7 @@ extends VBoxContainer
 @export var boton : Button
 
 
-
+#Boto de la tenda on actualiza la millora i la tenda
 func actualizar_boton():
 	objeto.actualziar_mejora()
 	precio_label.text = str(objeto.precio) + " G"
@@ -16,8 +16,8 @@ func actualizar_boton():
 	
 func _on_casilla_tienda_pressed():
 	if Global.mejoras["DINERO"] >= objeto.precio:
+		Global.mejoras["DINERO"] -= objeto.precio
 		objeto.mejora(1)
 		precio_label.text = str(objeto.precio)+ " G"
 		num_mejora_label.text = str(objeto.numero_mejoras)
 		Global.actualizar_diner.emit()
-		Global.mejoras["DINERO"] -= objeto.precio

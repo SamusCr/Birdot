@@ -2,6 +2,8 @@ extends Control
 
 @export var posibles_mejoras: Array[Casilla_tienda]
 
+#Tenda on comrpar les millores. Pot acutalitzar tota la tenda i el personatge per quan guardem o carguem partida
+
 func _ready():
 	Global.actualizar_personaje.connect(actualizar_personaje)
 	actualizar_personaje()

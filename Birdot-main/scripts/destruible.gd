@@ -4,7 +4,8 @@ extends Resource
 
 @export var vida : int
 
-
+#Recurs per donar-li vida a qualsevol node, 
+#pero ha de tenir una propietat vida_porpia per a que no es comparteixi
 func damage(daño: int, object):
 	object.vida_actual -= daño
 	if object.is_in_group("jugador"):
@@ -18,5 +19,3 @@ func damage(daño: int, object):
 			object.game_over()
 		else:
 			object.queue_free()
-	#else:
-		#object.queue_free()

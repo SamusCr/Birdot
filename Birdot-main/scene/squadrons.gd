@@ -6,6 +6,8 @@ extends Node2D
 @export var time_spawn : int
 var num_enemie = 0
 
+#Aquest node es on crearem els esquadrons en els diferents enemics i decidirem quan s'activen i quina distribucio tindran
+
 func _ready():
 	for n in get_children():
 		enemies.append(n)

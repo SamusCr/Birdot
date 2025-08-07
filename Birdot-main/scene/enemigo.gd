@@ -12,6 +12,12 @@ var time: float
 var activado: bool = false
 var vida_actual:int
 var Camera: Camera2D
+
+#Node enemic, depenent del Resource IA que li afegim tindra diferents modus d'atacar o moure's
+#La vida es controlada pel Resource destruible, si volem que tinga vida diferent es creara un nou recurs
+#Tenir en compte que es fill de Camara per a que seguexi sempre a 
+#la mateixa velocitat al jugador, pero que el jugador pugui esquivar-lo
+#M'he sobrecomplicat, soc idiota
 func _ready():
 	vida_actual = vida_resource.vida
 	$Sprite2D.texture = ia_enemie.sprite

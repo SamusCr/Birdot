@@ -5,7 +5,8 @@ var scena_juego : PackedScene = preload("res://scene/game.tscn")
 func _ready():
 	if Global.cargar_partida():
 		$Menu/Continuar.show()
-		
+
+#boto del menu principal
 func _on_continuar_pressed():
 	Global.actualizar_personaje.emit()
 	Global.actualizar_diner.emit()
@@ -22,9 +23,10 @@ func _on_opciones_pressed():
 
 func _on_volver_pressed():
 	$Opciones.hide()
+	$ColorRect.hide()
 	$Menu.show()
 
-
+#Botons del menu opcions
 func _on_option_button_item_selected(index):
 	print($Opciones/OptionButton.get_item_text(index))
 	match $Opciones/OptionButton.get_item_text(index):
@@ -40,3 +42,8 @@ func _on_option_button_item_selected(index):
 
 func _on_salir_pressed():
 	get_tree().quit()
+
+
+func _on_tutorial_pressed():
+	$ColorRect.show()
+	$Menu.hide()

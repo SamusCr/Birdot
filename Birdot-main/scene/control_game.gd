@@ -10,36 +10,41 @@ extends Node2D
 @export var move_camera : int
 @export var UI :Control
 
-
+#Canvis de pantalla
 var distancia_siguiente_pantalla: int
 var pantalla_actual : int = 0
 var es_final : bool = false
 
-var final_paralax: Parallax2D
 var potencia_disparo: float = 0
-var velocidad_fiesta:int = 1
+var velocidad_flecha:int = 1
 var velocidad_paralax =0
-var limit_superior :bool =false
 
+
+#fases del joc
 enum fases  {POTENCIA, APUNTADO, VOLAR,TIENDA,GAMEOVER}
+
+
 func _ready():
 	distancia_siguiente_pantalla =Paralax_pantallas[0].distancia_inicio
 	Global.aterrizaje.connect(_aterrizaje)
 	Global.game_over.connect(game_over)
 	UI.combustible.value = UI.combustible.max_value
+
+
 func _process(delta):
 	match fase_actual:
 		fases.POTENCIA:
 			elegir_potencia()
 		fases.APUNTADO:
-			potencia_disparo_bar.rotation_degrees = potencia_disparo_bar.rotation_degrees - velocidad_fiesta
+			potencia_disparo_bar.rotation_degrees = potencia_disparo_bar.rotation_degrees - velocidad_flecha
 			if potencia_disparo_bar.rotation_degrees >= 90|| potencia_disparo_bar.rotation_degrees <= 30:
-				velocidad_fiesta = -velocidad_fiesta 
+				velocidad_flecha = -velocidad_flecha 
 		fases.VOLAR:
 			Bird.move_camera()
 			if Bird.position.x >= distancia_siguiente_pantalla && es_final == false:
 				avanzar_pantalla()
-			
+
+#Control del dispar
 func _input(event): 
 	match fase_actual:
 		fases.POTENCIA:
@@ -60,7 +65,6 @@ func _input(event):
 					Bird.cadencia.start()
 			if event.is_action_pressed("Impulso") && UI.reduir_combustible(Bird.combustible_gasto):
 				move_camera = Bird.salto
-				limit_superior= false
 				Bird.impulso_salto()
 
 				
@@ -73,7 +77,7 @@ func elegir_potencia()->void:
 		potencia_disparo = 0
 		potencia_disparo_bar.value =0
 	
-
+#final del vol
 func _aterrizaje():
 	if fase_actual == fases.VOLAR :  
 		fase_actual = fases.TIENDA
@@ -82,10 +86,9 @@ func _aterrizaje():
 		if es_final == true:
 			get_tree().change_scene_to_file("res://pantalla_guanyar.tscn")
 		else:
-			
 			$TiendaCanvas/Tienda.show()
 		Global.destruir_spawner.emit()
-
+#quan canvair de paralax
 func avanzar_pantalla():
 	for n in Paralax.size():
 		if Paralax_pantallas[pantalla_actual].paralax.size() > n:

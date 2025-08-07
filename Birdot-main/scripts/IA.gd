@@ -13,7 +13,8 @@ extends Resource
 @export var frequencia :float
 
 
-
+#Recurs d'on hereden els recursos de la IA dels enemics. 
+#Es creara un altre script per detallar mes el seu comprtament
 
 var direction :Vector2
 

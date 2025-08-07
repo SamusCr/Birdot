@@ -2,10 +2,8 @@ extends Node
 
 var player : RigidBody2D
 
-var enemigos_abatidos: int =0
 
-
-#mejoras
+#Propietats que s'han de tenir en compter quan es guarda
 var mejoras : Dictionary = {"MEJORA_ARMA": 0,"MEJORA_DANO":0,"MEJORA_IMPULSO":0,"MEJORA_SALTO":0,"DINERO":40}
 
 var path_save: String= "user://save_data.data"

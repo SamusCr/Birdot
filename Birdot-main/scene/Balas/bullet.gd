@@ -15,12 +15,12 @@ func _physics_process(delta):
 	position +=  direccion.normalized()*delta*velocidad
 	
 
-
+#destruccio de la bala en el temps
 func _on_timer_timeout():
 	queue_free()
 
 
-
+#He separat les colisions en dos funcions diferents perque les bales i enemics son arees i el jugador es un rigidbody
 func _on_area_entered(area):
 	if  area.is_in_group("bala_enemigo")|| area.is_in_group("enemigo")|| area.is_in_group("jugador"):
 		area.vida_resource.damage(daño,area)

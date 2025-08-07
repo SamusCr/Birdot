@@ -35,6 +35,7 @@ func _ready():
 	posicion_final = Camera.position
 	Global.actualizar_personaje.emit()
 
+#Faig canviar el la gravetatper a que caiga mes lento. Per detectar quan para li diguem que can_sleep = true
 func impulse_bird(ini_force:Vector2):
 	gravity_scale = 0.5
 	can_sleep = true
@@ -43,6 +44,7 @@ func impulse_bird(ini_force:Vector2):
 func impulso_salto():
 	apply_central_impulse(Vector2(impulso_base*salto,-impulso_base*salto)*50)
 
+#Canvis de camara per donar sensacio de moviment
 func move_camera():
 	if linear_velocity.y > 1 && linear_velocity.x != 0:
 		if $AnimatedSprite2D.animation!= "caer":
@@ -68,10 +70,10 @@ func game_over():
 	Global.game_over.emit()
 	$AnimatedSprite2D.hide()
 
-
+#cadenciad e dispar
 func _on_cadencia_timeout():
 	can_shoot = true
 
-
+#en el moment que no es mou, es considera que ha aterrat
 func _on_sleeping_state_changed():
 	Global.aterrizaje.emit()

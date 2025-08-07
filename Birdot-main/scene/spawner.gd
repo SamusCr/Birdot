@@ -4,6 +4,10 @@ extends Node2D
 var next_squadron : int = 0
 var actual_squadron
 
+#Per intentar fer el joc modulable he creat aquesta Node per contenir els esquadrons que vindran atacar
+#Primer tindran un moviment per mostrar-se abasn d'atacar.
+#Quan un esquadro es destriut per complet, es creara el seguent
+
 func _ready():
 	Global.squadra_destruida.connect(squadra_destru)
 	Global.empezar_spawnear.connect(empezar_spawnear)
@@ -12,7 +16,6 @@ func _ready():
 func spawn_squadron():
 	Global.player.Camera.add_child(actual_squadron)
 	actual_squadron.position = position
-
 	var tween : Tween = create_tween()
 	tween.tween_property(actual_squadron, "position", position + Vector2(200, 0),2)
 	await tween.finished 
@@ -20,7 +23,7 @@ func spawn_squadron():
 
 func destruir_spawner():
 	for enemie in actual_squadron.enemies:
-		actual_squadron.destruir_enemigo(enemie)
+		enemie.eliminado()
 	actual_squadron.queue_free()
 	queue_free()
 

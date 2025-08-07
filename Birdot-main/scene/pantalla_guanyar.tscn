@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://byfhbpr0e81d6"]
 
-[ext_resource type="Script" uid="uid://cdxovi8pbtuy4" path="res://pantalla_guanyar.gd" id="1_245aj"]
+[ext_resource type="Script" uid="uid://cdxovi8pbtuy4" path="res://scene/pantalla_guanyar.gd" id="1_245aj"]
 [ext_resource type="Texture2D" uid="uid://dotqauvpkh3yv" path="res://Assets/art/Paralax/City_Dirty/1.Sky.png" id="1_umiq0"]
 [ext_resource type="Texture2D" uid="uid://csnnxcvbadtge" path="res://Assets/art/Paralax/City_Dirty/2.Buildings.png" id="2_245aj"]
 [ext_resource type="Texture2D" uid="uid://cboj7ybimjs8t" path="res://Assets/art/Paralax/City_Dirty/3.Wall.png" id="3_snf23"]

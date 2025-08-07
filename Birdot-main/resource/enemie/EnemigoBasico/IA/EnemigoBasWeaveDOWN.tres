@@ -15,6 +15,6 @@ nombre = ""
 "daño_base" = 2
 Recompensa = 4
 velocidad = 200.0
-velocidad_frequencia = 5.0
+velocidad_frequencia = 2.0
 frequencia = 5.0
 metadata/_custom_type_script = "uid://bdj76l1a41k84"

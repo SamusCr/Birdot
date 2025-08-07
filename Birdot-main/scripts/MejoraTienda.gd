@@ -6,7 +6,8 @@ extends Resource
 @export var nombre : String
 
 var numero_mejoras: int =0
- 
+# Millores que es poden comprar en la tenda.
+ #S'ha de controlar en el llistat de millores que hi ha a GLOBAL
 func _init():
 	precio *=  numero_mejoras
 
