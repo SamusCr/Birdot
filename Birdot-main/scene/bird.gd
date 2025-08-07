@@ -18,8 +18,6 @@ extends RigidBody2D
 @export var punto_delante_final2: Node2D
 @export var move_camera_vel : float
 
-
-
 var daño_base :int = 1
 var can_shoot: bool = true
 var limit_superior :bool =false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://djdqt6spnjh51"]
+[gd_scene load_steps=21 format=3 uid="uid://djdqt6spnjh51"]
 
 [ext_resource type="Script" uid="uid://dr6madbvxem4k" path="res://scene/control_game.gd" id="1_dbls1"]
 [ext_resource type="PackedScene" uid="uid://bfb2cucmt51io" path="res://scene/bird.tscn" id="2_33cqm"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cvhdjesf48clx" path="res://Assets/art/Arrow Pack 1.0/Png Files Big/Big outline/Standard Yellow Arrow with Big Outline (2).png" id="6_i6gbm"]
 [ext_resource type="Texture2D" uid="uid://d1qq4f0cx7wku" path="res://Assets/art/Paralax/far city background/0.png" id="7_17rxn"]
 [ext_resource type="PackedScene" uid="uid://3ewjqoqprxvn" path="res://scene/tienda.tscn" id="14_81276"]
+[ext_resource type="AudioStream" uid="uid://c7m5hv5iw1by4" path="res://Assets/music/feather-oars-color-parade-main-version-03-30-4088.mp3" id="18_ux4dc"]
 [ext_resource type="PackedScene" uid="uid://ghbv4qxcy4mr" path="res://scene/ui.tscn" id="19_jrd6n"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_17rxn"]
@@ -163,5 +164,10 @@ show_behind_parent = true
 
 [node name="Tienda" parent="TiendaCanvas" instance=ExtResource("14_81276")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_ux4dc")
+volume_db = -5.0
+autoplay = true
 
 [connection signal="body_shape_entered" from="Bird" to="." method="_on_bird_body_shape_entered"]

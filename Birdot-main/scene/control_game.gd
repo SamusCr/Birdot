@@ -10,7 +10,7 @@ extends Node2D
 @export var move_camera : int
 @export var UI :Control
 
-#Canvis de pantalla
+#Canvis de antalla
 var distancia_siguiente_pantalla: int
 var pantalla_actual : int = 0
 var es_final : bool = false
@@ -59,7 +59,7 @@ func _input(event):
 		fases.VOLAR:
 			if event.is_action_pressed("Disparar"):
 				if Bird.can_shoot:
-					var nuev_bala = Bird.Arma.disparar(get_global_mouse_position(), Bird.global_position, Bird.Bala,Bird.daño_base)
+					var nuev_bala = Bird.Arma.disparar(get_global_mouse_position(), Bird.position, Bird.Bala,Bird.daño_base)
 					Bird.can_shoot = false
 					Bird.cadencia.wait_time = Bird.Arma.cadencia
 					Bird.cadencia.start()
